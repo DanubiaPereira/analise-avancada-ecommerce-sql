@@ -31,39 +31,59 @@ O banco de dados `olist.db` foi populado a partir de 9 arquivos CSV distintos, r
 
 ---
 
-## 📈 Questões de Negócio e Análise
+## 📈 Trilha de Análise Estratégica
 
-As seguintes perguntas foram investigadas para gerar insights para a empresa:
+A análise foi segmentada em 5 níveis de complexidade, partindo de métricas de negócio fundamentais até análises comportamentais avançadas. Cada nível demonstra uma habilidade específica em SQL aplicada a um problema de negócio real.
 
-#### Nível 1: Análise com `JOINs` e Agregações
+<details>
+<summary><strong>NÍVEL 1: KPIs Fundamentais de Negócio (JOINs & Agregações)</strong></summary>
+<br>
+<i><strong>Objetivo:</strong> Mapear a performance de vendas e o comportamento de consumo através da união de dados de pedidos, produtos e clientes para gerar Indicadores Chave de Performance (KPIs).</i>
 
-**1. Qual o faturamento total por categoria de produto?**
-* **Insight:** [A ser preenchido após a análise...]
+1.  **Análise de Receita por Categoria:** Qual o faturamento (`revenue`) por categoria de produto, para identificar as categorias de maior impacto financeiro?
+2.  **Análise Geográfica de Vendas:** Qual o ticket médio de compra por estado, visando entender o poder de compra e a performance regional?
+3.  **Análise de Satisfação vs. Pagamento:** Existe correlação entre o método de pagamento utilizado e a satisfação do cliente (medida pelo `review_score`)?
 
-**2. Qual o ticket médio (valor médio do pedido) por estado do cliente?**
-* **Insight:** [A ser preenchido após a análise...]
+</details>
 
-**3. Qual a nota média de avaliação (`review_score`) para cada método de pagamento?**
-* **Insight:** [A ser preenchido após a análise...]
+<details>
+<summary><strong>NÍVEL 2: Eficiência Operacional e Segmentação (CTEs)</strong></summary>
+<br>
+<i><strong>Objetivo:</strong> Utilizar Common Table Expressions (CTEs) para analisar a eficiência do processo de venda e segmentar clientes, demonstrando a capacidade de estruturar consultas SQL complexas de forma clara e modular.</i>
 
-#### Nível 2: Análise com `CTEs` (Common Table Expressions)
+4. **Identificação de Clientes Recorrentes:** Quais clientes realizaram mais de uma compra, estabelecendo uma base para futuras análises de lealdade (RFM)?
+5. **Análise do Lead Time de Entrega:** Qual o tempo médio (em dias) entre a confirmação da compra e a entrega do pedido, um KPI chave para a eficiência logística?
 
-**4. Quais clientes fizeram mais de 2 pedidos e qual o valor total gasto por eles?**
-* **Insight:** [A ser preenchido após a análise...]
+</details>
 
-**5. Qual o tempo médio, em dias, entre a data da compra e a data de entrega?**
-* **Insight:** [A ser preenchido após a análise...]
+<details>
+<summary><strong>NÍVEL 3: Análises Comparativas e de Ranking (Window Functions)</strong></summary>
+<br>
+<i><strong>Objetivo:</strong> Aplicar `Window Functions` para criar análises de ranking e séries temporais, extraindo insights relacionais profundos sobre a performance de produtos e o comportamento de compra dos clientes.</i>
 
-#### Nível 3: Análise com `Window Functions`
+6. **Ranking de Categorias:** Qual o ranking de categorias por faturamento, para otimizar a alocação de investimentos e planejamento de estoque?
+7. **Análise de Evolução de Gastos:** Qual o valor do pedido atual de um cliente em comparação com o seu pedido anterior (análise com `LAG`)?
+8. **Análise de Share de Receita:** Qual a contribuição percentual de cada categoria para a receita total da empresa?
 
-**6. Qual o ranking das categorias de produto mais vendidas em termos de faturamento?**
-* **Insight:** [A ser preenchido após a análise...]
+</details>
 
-**7. Para cada cliente, qual foi o valor do pedido atual e o valor do pedido anterior?**
-* **Insight:** [Esta análise gera uma tabela exploratória e o insight será uma descrição do seu potencial de uso...]
+<details>
+<summary><strong>NÍVEL 4: Análise de Performance Temporal (Pivoting)</strong></summary>
+<br>
+<i><strong>Objetivo:</strong> Criar relatórios sumarizados em formato de matriz, transformando dados de formato longo para largo (`long-to-wide`) diretamente em SQL para visualizar a evolução da performance ao longo do tempo.</i>
 
-**8. Qual a participação percentual do faturamento de cada categoria no faturamento total?**
-* **Insight:** [A ser preenchido após a análise...]
+9. **Performance Anual por Categoria:** Qual a evolução do faturamento por categoria de produto, ano a ano?
+
+</details>
+
+<details>
+<summary><strong>NÍVEL 5: Análise de Retenção de Clientes (Cohort Analysis)</strong></summary>
+<br>
+<i><strong>Objetivo:</strong> Implementar uma Análise de Coorte para mensurar a retenção de clientes, um dos indicadores mais importantes para a saúde e sustentabilidade do negócio a longo prazo.</i>
+
+10. **Taxa de Retenção Mensal:** Qual a taxa de retenção de novos clientes, mês a mês, a partir do mês de sua primeira compra?
+
+</details>
 
 ---
 
